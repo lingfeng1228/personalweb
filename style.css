@@ -1,0 +1,336 @@
+ <style>
+        /*设置页面占据整个浏览器窗口，并使用Arial字体作为默认字体*/
+        /* Set the page to occupy the entire browser window and use Arial font as the default font*/
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+
+/*设置导航菜单的样式：居中显示，上边距20*/
+/* Set the style of the navigation menu to be centered with a top margin of 20*/
+        #navigation {
+            text-align: center;
+            margin-top: 20px;
+        }
+/* 设置内容区域的样式，使其距离顶部50px的上边距，同时居中显示*/
+/* Set the style of the content area to have a 50px top margin and be centered.*/
+        #content {
+            margin-top: 50px;
+            text-align: center;
+        }
+/*设置经历部分的样式，将其默认设置为不可见，距离顶部有50px的上边距*/
+/*Set the style of the experience section to  be invisible by default with a 50px top margin*/
+        #experience {
+            display: none;
+            margin-top: 50px;
+        }
+/* 设置每个项目条目的样式，使其下边距为30px*/
+/*Set the style of each project item to have a 30px bottom margin*/
+        .project-section {
+            margin-bottom: 30px;
+        }
+/*设置每个项目的标题样式，包括字体大小为18px和加粗*/
+/*Set the style of each project title to include a font size of 18px and bold*/
+        .project-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .project-description {
+            margin-top: 10px;
+        }
+
+        .project-media {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .project-image {
+            margin: 0 5px;
+            max-width: 300px;
+            max-height: 200px;
+        }
+
+        .project-video {
+            margin: 0 5px;
+            width: 400px;
+            height: 300px;
+        }
+
+
+        /*设置个人简历和项目经历的图标按钮样式*/
+        .button-icon {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+
+    #resumeButton {
+        display: inline-block;
+        font-size: 0; /* 禁用按钮文字显示 */
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 5px;
+        background-color: #f0f8ff;
+        z-index: 1;
+        position: relative;
+    }
+
+     #experienceButton {
+        display: inline-block;
+        font-size: 0; /* 禁用按钮文字显示 */
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 5px;
+         background-color: #f0f8ff;
+        z-index: 1;
+        position: relative;
+    }
+
+/*将上面的两个按钮和下面的蓝色边框组合*/
+
+ .button-group {
+        position: relative;
+        width: 100%;
+        height: 12%;
+        background-color: #f0f8ff;
+        margin-bottom: 10px;
+    }
+
+      /* 定义一个淡蓝色的背景色 */
+    .blue-background {
+      background-color: lightblue;
+    }
+
+    /* 定义一个无边框的矩形 */
+    .rectangle {
+      border: none;
+    }
+
+    /*设置pdf显示格式*/
+     #pdfContainer {
+        position: fixed;
+        top: 10%;
+        left: 20%; /* 设置左侧空白宽度为页面宽度的20% */
+        width: 60%;
+        height: 600px;
+        height: calc(100vh - 10vh); /* 100vh 减去背景图片占用的高度（10vh） */
+    }
+
+    @media (max-width: 768px) {
+        /* 当屏幕宽度小于等于768px时，设置 PDF 框占据整个页面宽度 */
+        #pdfContainer {
+            left: 0;
+            width: 100%;
+        }
+    }
+
+     /*定义main背景*/
+
+    .bg-container {
+    position: fixed;
+    top: 10vh;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background: url('./images/3.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+     /*定义软件项目背景*/
+
+    .rbg-container {
+    position: fixed;
+    top: 10vh;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background: url('./images/7.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+  /*定义硬件项目背景*/
+
+    .ybg-container {
+    position: fixed;
+    top: 10vh;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background: url('./images/8.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+/*为项目经历按钮添加*/
+   .dropdown-content {
+ display: none;
+  position: absolute;
+   background-color: #f9f9f9;
+    min-width: 130px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+   .dropdown-content a {
+            color: black;
+            padding: 18px 22px;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+            font-family: "Arial", sans-serif;                /*这几行设置字体，不设置后面无法显示*/
+  font-size: 16px;
+  color: #333;
+        }
+
+
+
+        .dropdown-content a:hover {
+            background-color: skyblue;
+        }
+
+        .show {
+            display: block;
+        }
+/*展示列表*/
+ .frame {
+    position: relative;
+  }
+  .file-list {
+    position: absolute;
+    top: 0;
+    left: 3%;
+    width: 15%;
+    background-color: lightgray;
+    padding: 10px;
+  }
+  .file-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .file-list li {
+    background-color: gray;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+/*创建项目的按钮*/
+/*设置按钮的样式类*/
+.create-project-btn {
+    position: fixed;
+    top: 15%;
+    right: 3%;
+    padding: 10px;
+    background-color: rgba(135, 206, 235, 0.9);  /* 设置背景颜色为淡蓝色，透明度为 0.5 */
+    cursor: pointer;
+    border: 0;  /*设置边框*/
+    border-radius: 5px;
+  }
+
+  /*置密码输入框和错误提示框的样式类*/
+   .password-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+ .password-modal input[type="password"] {
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+  /*设置错误信息的样式类*/
+   .error-message {
+    color: red;
+  }
+
+/* 弹出框样式 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/*设置左侧滚轮滑动*/
+.file-list {
+  width: 20%;
+  height: 600;
+  overflow-y: scroll;
+  background-color: transparent;  /* 设置为透明背景 */
+  /* 其他样式 */
+}
+/*关于滚动条的设置*/
+.file-list,
+.center-content {
+  pointer-events: auto;
+}
+/*将滚动条设置成灰色透明*/
+.file-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.file-list::-webkit-scrollbar-thumb {
+  background-color: rgba(128, 128, 128, 0.5);  /* 设置滑块颜色为灰色透明 */
+}
+
+.file-list::-webkit-scrollbar-track {
+  background-color: rgba(128, 128, 128, 0.2);  /* 设置轨道颜色为灰色透明 */
+}
+/*以上这种方式只适用于 WebKit 内核的浏览器（如 Chrome、Safari）*/
+
+/*下面添加其他浏览器适用的滚动条灰色设置*/
+.file-list {
+  scrollbar-width: thin;  /* 设置滚动条的宽度 */
+}
+
+.file-list::-webkit-scrollbar-thumb {
+  background-color: rgba(128, 128, 128, 0.5);  /* 设置滑块颜色为灰色透明 */
+}
+
+.file-list::-webkit-scrollbar-track {
+  background-color: rgba(128, 128, 128, 0.2);  /* 设置轨道颜色为灰色透明 */
+}
+.file-list {
+  scrollbar-color: rgba(128, 128, 128, 0.5) rgba(128, 128, 128, 0.2);  /* Firefox下设置滚动条的颜色 */
+}
+/*在上述代码中，我使用 scrollbar-width 属性来设置滚动条的宽度，并使用 -webkit-scrollbar-thumb 和
+ -webkit-scrollbar-track来选择滚动条滑块和轨道的样式，与前面处理 WebKit 内核浏览器的方式相同。
+然后，使用 scrollbar-color 属性来设置滚动条的颜色。属性值由两个颜色参数组成，分别表示滑块颜色和轨道颜色。
+在示例中，我将滑块颜色设置为 rgba(128, 128, 128, 0.5)，轨道颜色设置为 rgba(128, 128, 128, 0.2)。*/
+    </style>
