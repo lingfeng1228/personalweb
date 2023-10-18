@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <!--这里因为本地没有写入的权限，所以需要用到外部的markdown编辑器在
+    HTML 页面中添加 Editor.md 需要的 CSS 和 JavaScript 文件引用
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/editor.md@1.5.0/css/editormd.min.css" />
+<script src="//cdn.jsdelivr.net/npm/editor.md@1.5.0/editormd.min.js"></script>
+-->
+    <title>硬件项目</title>
+    <script src="./event.js">
+    </script>
+</head>
+<body>
+<!-- 创建一个淡蓝色的无边框矩形，宽度和页面大小一样宽，高度占当前页面的8% -->
+<div class="blue-background rectangle" style="width: 100%; height: 8%;">
+    <div id="navigation">
+         <div class="button-group"></div> <!-- 背景条 -->
+        <span id="resumeButton" >
+        <a href="./main.html"><i class="button-icon" style="background-image: url('./images/个人简历.png');"></i></a>
+    </span> |
+
+       <span id="experienceButton" onclick="showExperience();">
+        <i class="button-icon" style="background-image: url('./images/项目经历.png');"></i>
+          <div id="dropdownContent" class="dropdown-content" onclick="showExperience()">
+              <a href="./软件项目.html"  >软件项目</a>
+        <a href="./硬件项目.html"  >硬件项目</a>
+    </div>
+    </span>
+</div>
+</div>
+<div class="ybg-container">
+    <!-- 蓝色框以下的部分 -->
+
+<div id="myFrame" class="frame">
+    <!-- 在这里添加您的网页内容 -->
+  <!--<div id="fileList">-->
+       <!--
+       <div id="myFrame" class="frame">
+       {% for file in files %}
+                <li>{{ file }}</li>
+                {% endfor %}     没有部署到服务器会因为安全问题无法访问，python方法-->
+        <div class="file-list">
+      <ul id="fileList"></ul>  <!--JavaScript方法也因为安全问题无法访问-->
+  </div>
+    <!--创建项目按钮-->
+  <div class="create-project-btn" onclick="showPasswordModal()">创建项目</div>
+
+<div class="password-modal" id="passwordModal">
+  <input type="password" id="passwordInput" placeholder="请输入密码">
+  <button onclick="checkPassword()">确认</button>
+  <button onclick="hidePasswordModal()">取消</button>
+  <div class="error-message" id="errorMessage"></div>
+</div>
+
+<!--创建文件的选项-->
+<div class="modal" id="createFileModal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <input type="text" id="fileNameInput" placeholder="请输入文件名">
+    <button onclick="createFile()">确定</button>
+      <textarea id="editor"></textarea>
+  </div>
+</div>
+
+
+
+  </div>
+</div>
+</body>
+</html>
