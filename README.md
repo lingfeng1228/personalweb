@@ -6,3 +6,4 @@ You can enter password to create new project use the  style of markdown .
 But because of local limit after enter the password ,i write according to the right idea.
 JavaScript there is no access to the local file.
 Subsequent versions are being refined and will be uploaded soon.
+All of the photos aer from their own shooting allowed communication use ,not authorized not commerical use.
